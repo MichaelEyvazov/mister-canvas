@@ -123,7 +123,6 @@ function onVelocityCheck(ev) {
     gTools.byVelocity = !gTools.byVelocity;
 }
 
-
 function makeVelocityCalculator(e_init, callback) {
     var x = e_init.clientX,
         y = e_init.clientY,
@@ -143,16 +142,15 @@ function makeVelocityCalculator(e_init, callback) {
         t = new_t;
     };
 }
-$(document).ready(function () {
-    $('#canvas-main').on("mousedown", function (e) {
-        var log = makeVelocityCalculator(e, function (v) {
-            if (gTools.byVelocity) {
-                gTools.width = gTools.widthBase + (v * 5);
-            }
-        });
-        $(document).on("mousemove", log).one("mouseup", function(){
-            $(document).off("mousemove", log);
-        });
 
+$('#canvas-main').on("mousedown", function (e) {
+    var log = makeVelocityCalculator(e, function (v) {
+        if (gTools.byVelocity) {
+            gTools.width = gTools.widthBase + (v * 5);
+        }
     });
+    $(document).on("mousemove", log).one("mouseup", function () {
+        $(document).off("mousemove", log);
+    });
+
 });
