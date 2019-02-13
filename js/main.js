@@ -12,6 +12,8 @@ function init() {
     gTools.color.stroke = $('#color-tool-stroke').val();
     gTools.color.fill = $('#color-tool-fill').val();
     gCanvas = $('#canvas-main');
+    gCanvas[0].width = window.innerWidth;
+    gCanvas[0].height = window.innerHeight;
     gCtx = gCanvas[0].getContext('2d');
 }
 

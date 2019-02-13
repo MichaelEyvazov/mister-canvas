@@ -7,9 +7,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
-    <title>Mister Canvas</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-
+    <title>Mister Canvas</title>
 </head>
 
 <body onload="init()">
@@ -17,19 +16,19 @@
         <div class="tools-container flex justify-content-center align-items-center">
             <input type="color" id="color-tool-stroke" data-colortype="stroke" onchange="onChangeColor(this)">
             <input type="color" id="color-tool-fill" value="#f4f4f4" data-colortype="fill" onchange="onChangeColor(this)">
-            <select id="dropdown">
+            <select id="shapes-select">
                 <option value="brush">Brush</option>
                 <option value="square">Square</option>
-                <option value="drowline">Drowline</option>
                 <option value="circle">Circle</option>
                 <option value="triangle">Triangle</option>
+                <option value="drawline">Draw line</option>
             </select>
             <button class="btn-save" onclick="onSaveClick()">Save</button>
             <button class="btn-reset" onclick="onResetClick()">Reset</button>
         </div>
     </header>
     <main>
-        <canvas height="500" width="980" id="canvas-main"></canvas>
+        <canvas id="canvas-main"></canvas>
     </main>
     <script src="js/main.js"></script>
 </body>
