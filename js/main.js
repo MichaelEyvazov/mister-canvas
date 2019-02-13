@@ -23,6 +23,10 @@ function drawCanvas(coords) {
 }
 
 
+function onChangeColor(el) {
+    console.log(el);
+}
+
 // function onCanvasClick(ev) {
 //     let coords = {
 //         x: ev.offsetX,
