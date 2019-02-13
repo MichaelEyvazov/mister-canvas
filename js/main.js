@@ -10,6 +10,7 @@ var gCanvas = null;
 var gCtx;
 
 function init() {
+    $('.tooltip').tooltipster();
     // Get default colors
     gTools.color.stroke = $('#color-tool-stroke').val();
     gTools.color.fill = $('#color-tool-fill').val();

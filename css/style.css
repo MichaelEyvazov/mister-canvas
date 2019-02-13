@@ -25,6 +25,10 @@ canvas {
     overflow-x: hidden;
 }
 
+input[type='checkbox'], label {
+    cursor: pointer;
+}
+
 button, select {
     background: none;
     border: 1px solid #333;
@@ -49,6 +53,10 @@ input[type="color"] {
     height: 2rem;
     border-radius: 50%;
     cursor: pointer;
+}
+
+input[type="color"]:focus {
+    outline: 0;
 }
 
 /* Helpers */
