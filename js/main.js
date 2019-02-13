@@ -1,12 +1,16 @@
 gTools = {
-    color: null,
+    color: {
+        stroke: null,
+        fill: null
+    },
     shape: null
 }
 var gCanvas = null;
 var gCtx;
 
 function init() {
-    gTools.color = $('#color-tool').val();
+    gTools.color.stroke = $('#color-tool-stroke').val();
+    gTools.color.fill = $('#color-tool-fill').val();
     gCanvas = $('#canvas-main');
     gCtx = gCanvas[0].getContext('2d');
 }
@@ -18,11 +22,11 @@ $("#canvas-main").on("mousemove", function (e) {
 });
 
 function drawCanvas(coords) {
-    gCtx.fillStyle = gTools.color;
+    gCtx.fillStyle = gTools.color.stroke;
     gCtx.fillRect(coords.x, coords.y, 5, 5);
 }
 
 
 function onChangeColor(el) {
-    gTools.color = el.value;
+    gTools.color[el.dataset.colortype] = el.value;
 }

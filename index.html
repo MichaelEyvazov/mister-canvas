@@ -15,7 +15,8 @@
 <body onload="init()">
     <header>
         <div class="tools-container flex justify-content-center align-items-center">
-            <input type="color" id="color-tool" onchange="onChangeColor(this)">
+            <input type="color" id="color-tool-stroke" data-colortype="stroke" onchange="onChangeColor(this)">
+            <input type="color" id="color-tool-fill" value="#f4f4f4" data-colortype="fill" onchange="onChangeColor(this)">
             <select id="dropdown">
                 <option value="brush">Brush</option>
                 <option value="square">Square</option>
