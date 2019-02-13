@@ -32,3 +32,7 @@ function drawCanvas(coords) {
 function onChangeColor(el) {
     gTools.color[el.dataset.colortype] = el.value;
 }
+
+function onResetClick() {
+    gCtx.clearRect(0, 0, gCanvas[0].width, gCanvas[0].height);
+}

@@ -22,7 +22,7 @@ canvas {
 
 main {}
 
-button , select{
+button, select {
     background: none;
     border: 1px solid #333;
     border-radius: 3px;
@@ -34,6 +34,10 @@ button , select{
 button:hover {
     background: red;
     color: #fff;
+}
+
+button:focus {
+    outline: 0;
 }
 
 input[type="color"] {
