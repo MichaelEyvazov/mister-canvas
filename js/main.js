@@ -36,3 +36,4 @@ function onChangeColor(el) {
 function onResetClick() {
     gCtx.clearRect(0, 0, gCanvas[0].width, gCanvas[0].height);
 }
+
