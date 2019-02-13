@@ -85,4 +85,5 @@ function onShapeChange(el) {
 
 function onChangeOutline(el) {
     gTools.width = el.value;
+    $('.curr-width').html(gTools.width);
 }

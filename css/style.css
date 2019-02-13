@@ -16,6 +16,11 @@ header {
     margin-right: 0.5rem;
 }
 
+.curr-width {
+    width: 1rem;
+    display: flex;
+}
+
 canvas {
     overflow-x: hidden;
 }
