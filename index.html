@@ -17,7 +17,7 @@
 <body onload="init()">
     <header>
         <div class="tools-container flex justify-content-center align-items-center">
-            <label class="check-random-label"><input type="checkbox" name="random" value="random" /><small>Size by
+            <label class="check-random-label" ><input type="checkbox" name="random" value="random" onclick="onVelocityCheck(event)" /><small>Size by
                     velocity</small></label>
             <input type="range" min="1" max="100" value="1" class="slider tooltip" title="Stroke Size" id="width-range"
                 onchange="onChangeOutline(this)">

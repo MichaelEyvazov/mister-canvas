@@ -5,6 +5,8 @@ gTools = {
     },
     shape: null,
     width: null,
+    widthBase: null,
+    byVelocity: false
 }
 var gCanvas = null;
 var gCtx;
@@ -19,6 +21,7 @@ function init() {
     gTools.shape = $('#shapes-select').val();
     // Get Default width
     gTools.width = +$('#width-range').val();
+    gTools.widthBase = +$('#width-range').val();
     // Get canvas element
     gCanvas = $('#canvas-main');
     // Set canvas dimensions to full screen
@@ -79,7 +82,7 @@ function drawCircle(coords) {
 }
 
 function drawTriangle(coords) {
-    gCtx.lineWidth = gTools.width/2;
+    gCtx.lineWidth = gTools.width / 2;
     gCtx.beginPath();
     gCtx.moveTo(coords.x, coords.y);
     gCtx.lineTo(coords.x + (gTools.width + 10), coords.y + (gTools.width + 10));
@@ -111,5 +114,45 @@ function onShapeChange(el) {
 
 function onChangeOutline(el) {
     gTools.width = +el.value;
+    gTools.widthBase = +el.value;
     $('.curr-width').html(gTools.width);
 }
+
+function onVelocityCheck(ev) {
+    ev.stopPropagation();
+    gTools.byVelocity = !gTools.byVelocity;
+}
+
+
+function makeVelocityCalculator(e_init, callback) {
+    var x = e_init.clientX,
+        y = e_init.clientY,
+        t = Date.now();
+    return function (e) {
+        var new_x = e.clientX,
+            new_y = e.clientY,
+            new_t = Date.now();
+        var x_dist = new_x - x,
+            y_dist = new_y - y,
+            interval = new_t - t;
+        var velocity = Math.sqrt(x_dist * x_dist + y_dist * y_dist) / interval;
+        callback(velocity);
+        // update values:
+        x = new_x;
+        y = new_y;
+        t = new_t;
+    };
+}
+$(document).ready(function () {
+    $('#canvas-main').on("mousedown", function (e) {
+        var log = makeVelocityCalculator(e, function (v) {
+            if (gTools.byVelocity) {
+                gTools.width = gTools.widthBase + (v * 5);
+            }
+        });
+        $(document).on("mousemove", log).one("mouseup", function(){
+            $(document).off("mousemove", log);
+        });
+
+    });
+});
