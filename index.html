@@ -16,6 +16,13 @@
     <header>
         <div class="tools-container flex justify-content-center align-items-center">
             <input type="color" id="color-tool" onchange="onChangeColor(this)">
+            <select id="dropdown">
+                <option value="brush">Brush</option>
+                <option value="square">Square</option>
+                <option value="drowline">Drowline</option>
+                <option value="circle">Circle</option>
+                <option value="triangle">Triangle</option>
+            </select>
             <button class="btn-save" onclick="onSaveClick()">Save</button>
             <button class="btn-reset" onclick="onResetClick()">Reset</button>
         </div>

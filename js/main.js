@@ -23,6 +23,6 @@ function drawCanvas(coords) {
 }
 
 
-function onChangeColor(el){
-    console.log(el);
+function onChangeColor(el) {
+    gTools.color = el.value;
 }
