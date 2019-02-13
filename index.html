@@ -8,16 +8,19 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
     <title>Mister Canvas</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
 </head>
 
 <body onload="init()">
     <header>
         <div class="tools-container flex justify-content-center align-items-center">
-            <input type="color">
+            <input type="color" id="color-tool" onchange="onChangeColor()">
+            <button class="btn-save" onclick="onSaveClick()">Save</button>
         </div>
     </header>
     <main>
-        <canvas id="canvas-main"></canvas>
+        <canvas height="500" width="980" id="canvas-main"></canvas>
     </main>
     <script src="js/main.js"></script>
 </body>
