@@ -54,18 +54,13 @@ function drawCanvas(coords) {
 
 function drawBrush(coords) {
     gCtx.lineWidth = 1;
-    gCtx.strokeStyle = gTools.color.stroke;
-    gCtx.fillStyle = gTools.color.stroke;
     gCtx.beginPath();
     gCtx.arc(coords.x, coords.y, gTools.width, 0, 2 * Math.PI);
-    gCtx.stroke();
     gCtx.fill();
     gCtx.closePath();
 }
 
 function drawSquare(coords) {
-    gCtx.strokeStyle = gTools.color.stroke;
-    gCtx.fillStyle = gTools.color.fill;
     gCtx.lineWidth = gTools.width;
     gCtx.beginPath();
     gCtx.rect(coords.x, coords.y, gTools.width, gTools.width);
@@ -75,8 +70,6 @@ function drawSquare(coords) {
 }
 
 function drawCircle(coords) {
-    gCtx.strokeStyle = gTools.color.stroke;
-    gCtx.fillStyle = gTools.color.fill;
     gCtx.lineWidth = gTools.width;
     gCtx.beginPath();
     gCtx.arc(coords.x, coords.y, gTools.width, 0, 2 * Math.PI);
@@ -86,8 +79,6 @@ function drawCircle(coords) {
 }
 
 function drawTriangle(coords) {
-    gCtx.strokeStyle = gTools.color.stroke;
-    gCtx.fillStyle = gTools.color.fill;
     gCtx.lineWidth = gTools.width/2;
     gCtx.beginPath();
     gCtx.moveTo(coords.x, coords.y);
@@ -100,6 +91,8 @@ function drawTriangle(coords) {
 
 function onChangeColor(el) {
     gTools.color[el.dataset.colortype] = el.value;
+    gCtx.strokeStyle = gTools.color.stroke;
+    gCtx.fillStyle = gTools.color.fill;
 }
 
 function onResetClick() {
