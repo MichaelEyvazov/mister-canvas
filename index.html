@@ -14,8 +14,11 @@
 <body onload="init()">
     <header>
         <div class="tools-container flex justify-content-center align-items-center">
+            <input type="checkbox" name="random" value="random" /><small>Size by velocity</small>
+            <input type="range" min="1" max="100" value="1" class="slider" id="width-range"
+                onchange="onChangeOutline(this)">
             <small><span class="curr-width">1</span></small>
-            <input type="range" min="1" max="100" value="1" class="slider" id="width-range" onchange="onChangeOutline(this)">
+
             <input type="color" id="color-tool-stroke" data-colortype="stroke" onchange="onChangeColor(this)">
             <input type="color" id="color-tool-fill" value="#f4f4f4" data-colortype="fill"
                 onchange="onChangeColor(this)">
