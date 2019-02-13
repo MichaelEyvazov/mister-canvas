@@ -38,6 +38,9 @@ function drawCanvas(coords) {
         case 'brush':
             drawBrush(coords);
             break;
+        case 'square':
+            drawSquare(coords);
+            break;
         case 'circle':
             drawCircle(coords);
             break;
@@ -50,6 +53,15 @@ function drawBrush(coords) {
     gCtx.fillStyle = gTools.color.stroke;
     gCtx.beginPath();
     gCtx.arc(coords.x, coords.y, gTools.width, 0, 2 * Math.PI);
+    gCtx.stroke();
+    gCtx.fill();
+}
+
+function drawSquare(coords) {
+    gCtx.strokeStyle = gTools.color.stroke;
+    gCtx.fillStyle = gTools.color.fill;
+    gCtx.lineWidth = gTools.width;
+    gCtx.rect(coords.x, coords.y, gTools.width, gTools.width);
     gCtx.stroke();
     gCtx.fill();
 }
