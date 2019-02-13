@@ -14,16 +14,20 @@
 <body onload="init()">
     <header>
         <div class="tools-container flex justify-content-center align-items-center">
+            <input type="range" min="1" max="100" value="1" class="slider" id="width-range" onchange="onChangeOutline(this)">
             <input type="color" id="color-tool-stroke" data-colortype="stroke" onchange="onChangeColor(this)">
-            <input type="color" id="color-tool-fill" value="#f4f4f4" data-colortype="fill" onchange="onChangeColor(this)">
-            <select id="shapes-select">
+            <input type="color" id="color-tool-fill" value="#f4f4f4" data-colortype="fill"
+                onchange="onChangeColor(this)">
+            <select id="shapes-select" onchange="onShapeChange(this)">
                 <option value="brush">Brush</option>
                 <option value="square">Square</option>
                 <option value="circle">Circle</option>
                 <option value="triangle">Triangle</option>
                 <option value="drawline">Draw line</option>
             </select>
-            <button class="btn-save" onclick="onSaveClick()">Save</button>
+            <!-- <a href="" type="button" class="btn-save" onclick="onSaveClick(this)">Save</a> -->
+            <a href="" onclick="onSaveClick(this)"><button class="btn-save"
+                    onclick="onSaveClick(this)">Save</button></a>
             <button class="btn-reset" onclick="onResetClick()">Reset</button>
         </div>
     </header>
