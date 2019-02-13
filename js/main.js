@@ -28,11 +28,15 @@ function drawCanvas(coords) {
     gCtx.fillRect(coords.x, coords.y, 5, 5);
 }
 
-
 function onChangeColor(el) {
     gTools.color[el.dataset.colortype] = el.value;
 }
 
 function onResetClick() {
     gCtx.clearRect(0, 0, gCanvas[0].width, gCanvas[0].height);
+}
+
+function onSaveClick(elLink) {
+    elLink.href = gCanvas[0].toDataURL()
+    elLink.download = 'my-img.jpg';
 }
