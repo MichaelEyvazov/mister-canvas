@@ -23,15 +23,6 @@ function drawCanvas(coords) {
 }
 
 
-function onChangeColor(el) {
+function onChangeColor(el){
     console.log(el);
 }
-
-// function onCanvasClick(ev) {
-//     let coords = {
-//         x: ev.offsetX,
-//         y: ev.offsetY
-//     }
-//     gCtx.fillStyle = 'black';
-//     gCtx.fillRect(coords.x, coords.y, 5, 5);
-// }
