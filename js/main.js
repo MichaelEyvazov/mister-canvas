@@ -21,13 +21,3 @@ function drawCanvas(coords) {
     gCtx.fillStyle = gTools.color;
     gCtx.fillRect(coords.x, coords.y, 5, 5);
 }
-
-
-// function onCanvasClick(ev) {
-//     let coords = {
-//         x: ev.offsetX,
-//         y: ev.offsetY
-//     }
-//     gCtx.fillStyle = 'black';
-//     gCtx.fillRect(coords.x, coords.y, 5, 5);
-// }
