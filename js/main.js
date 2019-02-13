@@ -55,15 +55,18 @@ function drawBrush(coords) {
     gCtx.arc(coords.x, coords.y, gTools.width, 0, 2 * Math.PI);
     gCtx.stroke();
     gCtx.fill();
+    gCtx.closePath();
 }
 
 function drawSquare(coords) {
     gCtx.strokeStyle = gTools.color.stroke;
     gCtx.fillStyle = gTools.color.fill;
     gCtx.lineWidth = gTools.width;
+    gCtx.beginPath();
     gCtx.rect(coords.x, coords.y, gTools.width, gTools.width);
     gCtx.stroke();
     gCtx.fill();
+    gCtx.closePath();
 }
 
 function drawCircle(coords) {
@@ -74,8 +77,8 @@ function drawCircle(coords) {
     gCtx.arc(coords.x, coords.y, gTools.width, 0, 2 * Math.PI);
     gCtx.stroke();
     gCtx.fill();
+    gCtx.closePath();
 }
-
 
 function onChangeColor(el) {
     gTools.color[el.dataset.colortype] = el.value;
