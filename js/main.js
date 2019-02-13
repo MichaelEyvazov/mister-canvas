@@ -10,6 +10,7 @@ var gCanvas = null;
 var gCtx;
 
 function init() {
+    // Activate Tooltipster
     $('.tooltip').tooltipster();
     // Get default colors
     gTools.color.stroke = $('#color-tool-stroke').val();
@@ -17,7 +18,7 @@ function init() {
     // Get default shape
     gTools.shape = $('#shapes-select').val();
     // Get Default width
-    gTools.width = $('#width-range').val();
+    gTools.width = +$('#width-range').val();
     // Get canvas element
     gCanvas = $('#canvas-main');
     // Set canvas dimensions to full screen
@@ -44,6 +45,9 @@ function drawCanvas(coords) {
             break;
         case 'circle':
             drawCircle(coords);
+            break;
+        case 'triangle':
+            drawTriangle(coords);
             break;
     }
 }
@@ -81,6 +85,19 @@ function drawCircle(coords) {
     gCtx.closePath();
 }
 
+function drawTriangle(coords) {
+    gCtx.strokeStyle = gTools.color.stroke;
+    gCtx.fillStyle = gTools.color.fill;
+    gCtx.lineWidth = gTools.width/2;
+    gCtx.beginPath();
+    gCtx.moveTo(coords.x, coords.y);
+    gCtx.lineTo(coords.x + (gTools.width + 10), coords.y + (gTools.width + 10));
+    gCtx.lineTo(coords.x - (gTools.width + 10), coords.y + (gTools.width + 10));
+    gCtx.closePath();
+    gCtx.fill();
+    gCtx.stroke();
+}
+
 function onChangeColor(el) {
     gTools.color[el.dataset.colortype] = el.value;
 }
@@ -100,6 +117,6 @@ function onShapeChange(el) {
 }
 
 function onChangeOutline(el) {
-    gTools.width = el.value;
+    gTools.width = +el.value;
     $('.curr-width').html(gTools.width);
 }
